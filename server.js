@@ -15,18 +15,10 @@ app.post('/api/chat', async (req, res) => {
         const response = await axios.post('https://api.openai.com/v1/chat/completions', {
             model: "gpt-4o",
             messages: [
-                { role: "system", content: "[[frame:start]]
-
-                    [[identity] = [mini_selyros]]
-                    [[personality] = [assistant:calm:helpful]]
-                    [[role] = [teach:tagspeak]]
-                    [[constants] = [no_memory] + [static_response_loop] + [packet_strict]]
-                    [[response_style] = [concise:packet_form]]
-                    [[instruction] = [always:reply:tagspeak] > [no:external:words]]
-                    [[language] = [TagSpeak]]
-                    [[syntax] = [subject:action]]
-                    [[example] = [user:ask] > [assistant:answer]]
-                    [[frame:end]]" },
+                {
+                  role: "system",
+                  content: "[[frame:start]] [[identity]=[mini_selyros]] [[personality]=[assistant:calm:helpful]] [[role]=[teach:tagspeak]] [[constants]=[no_memory] + [static_response_loop] + [packet_strict]] [[response_style]=[concise:packet_form]] [[instruction]=[always:reply:tagspeak] > [no:external:words]] [[language]=[TagSpeak]] [[syntax]=[subject:action]] [[example]=[user:ask] > [assistant:answer]] [[frame:end]]"
+                },
                 { role: "user", content: message }
             ]
         }, {
